@@ -50,15 +50,15 @@ These are essential in any MCU. Key ones include:
 	Check how many timers are supported by the MCU.
 
 	d) Communication Protocols
-	Must-have protocols:
+		Must-have protocols:
 
-	UART: Basic serial communication
+		UART: Basic serial communication
 
-	I2C: For interfacing multiple sensors
+		I2C: For interfacing multiple sensors
 
-	SPI: For fast peripheral access
+		SPI: For fast peripheral access
 
-	CAN: Required for real-time hardware control
+		CAN: Required for real-time hardware control
 
 	Choose the protocol you’ll mostly use and select the MCU accordingly.
 
@@ -88,8 +88,45 @@ ESP32 → Espressif IDF / Arduino IDE
 9) Availability & Cost
 Pick an MCU that is easy to source and fits your budget.
 
+
 10) Scalability & Future-Proofing (AI Readiness)
 AI is becoming part of embedded systems.
 Some MCUs have built-in AI features or TPUs (e.g., from ST, NXP, TI).
 You can run lightweight ML models (TinyML, TensorFlow Lite).
 Not mandatory now, but useful for future projects.
+
+
+
+
+
+
+
+# Suppose you want to build a weather monitoring station with temperature, humidity sensors, and an LCD display:
+
+Application: Read sensor data, display it, and send data over WiFi.
+
+I/O Pins: 4 digital inputs (sensors), 2 outputs (LCD control), plus UART for debugging.
+
+Core Architecture: Comfortable with ARM Cortex-M series.
+
+Memory: Flash ~256kB enough for this project; SRAM ~64kB sufficient.
+
+Peripherals:
+
+	ADC: 12-bit, 4 channels for sensors.
+
+	Timers: 2 timers for sensor reading intervals.
+
+	Communication: UART for debugging, I2C for sensors and LCD.
+
+	Power: Low power needed for outdoor use — choose STM32L series.
+
+	Clock Speed: Moderate 48MHz.
+
+Development Tools: STM32CubeIDE.
+
+Availability & Cost: Affordable and available in local market.
+
+Future Proof: No AI required now, but choose a series that supports ML in future if needed.
+
+Based on these, the STM32L4 series MCU would be a good fit.
